@@ -1,7 +1,10 @@
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws NumberFormatException {
+    public static void main(String[] args) throws NumberFormatException, NoSuchAlgorithmException, InvalidKeyException {
 
         while (true) {
 
@@ -27,9 +30,11 @@ public class Main {
         return set.size() == arr.length;
     }
 
-    public static void startGame(String s) {
+    public static void startGame(String s) throws NoSuchAlgorithmException, InvalidKeyException {
         TableASCII table = new TableASCII();
         table.printMenu(s);
+        Rules rules = new Rules();
+        rules.movePC(s);
     }
 
 
