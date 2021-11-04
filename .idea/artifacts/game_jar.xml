@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact name="game:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/game_jar</output-path>
+    <root id="root">
+      <element id="archive" name="game.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="game" />
+      </element>
+      <element id="library" level="project" name="Maven: com.github.freva:ascii-table:1.2.0" />
+      <element id="library" level="project" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.69" />
+      <element id="library" level="project" name="Maven: org.bouncycastle:bcutil-jdk15on:1.69" />
+      <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.69" />
+    </root>
+  </artifact>
+</component>

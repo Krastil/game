@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: Main
+Class-Path: ascii-table-1.2.0.jar bcpkix-jdk15on-1.69.jar bcutil-jdk15on
+ -1.69.jar bcprov-jdk15on-1.69.jar
+

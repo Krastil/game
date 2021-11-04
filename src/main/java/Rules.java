@@ -1,7 +1,9 @@
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Rules {
 
@@ -21,11 +23,20 @@ public class Rules {
     public void makeMove(int a, int l, String s) {
         System.out.print("Enter you move: ");
         String str = new Scanner(System.in).nextLine();
+        String[] arr = s.split(" ");
+        int count = 0;
         if (str.equals("0")) {
             System.exit(0);
-        } else if (str.equals("?")) {
+        }
+        if (str.equals("?")) {
             table.printTable(s);
-        } else {
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (!str.equals(arr[i])) {
+                count++;
+            }
+        }
+        if (arr.length != count) {
             int b = Integer.parseInt(str);
             if (a == b) {
                 System.out.println("DRAW");
@@ -34,11 +45,26 @@ public class Rules {
             } else {
                 System.out.println("LOSE");
             }
-            System.out.println(hmac.getKey());
+            System.out.println("HMAC key: " + hmac.getKey());
+        } else {
+            System.out.println("Incorrectly entered variables.\n");
         }
     }
 
     public int movePC(int l) {
         return new SecureRandom().nextInt(l);
+    }
+
+    public boolean checkRepeats(String s) {
+        String[] arr = s.split(" ");
+        Set<String> set = new HashSet<>();
+        for (String str : arr) set.add(str);
+        return set.size() == arr.length;
+    }
+
+    public boolean checkQuantity(String s) {
+        if (s.split(" ").length % 2 != 0 && s.split(" ").length != 1) {
+            return true;
+        } else return false;
     }
 }
