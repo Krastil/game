@@ -6,6 +6,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws NumberFormatException, NoSuchAlgorithmException, InvalidKeyException {
 
+        // переделать под массив args
+
+        Rules rules = new Rules();
         while (true) {
 
             String variables = new Scanner(System.in).nextLine();
@@ -14,7 +17,9 @@ public class Main {
 //            }
 
             if (checkRepeats(variables)) {
-                startGame(variables);
+                while (true) {
+                    rules.startGame(variables);
+                }
             } else {
                 System.out.println("Incorrectly entered variables. Try again.\nExample:rock paper scissors");
             }
@@ -28,13 +33,6 @@ public class Main {
         Set<String> set = new HashSet<String>();
         for (String str : arr) set.add(str);
         return set.size() == arr.length;
-    }
-
-    public static void startGame(String s) throws NoSuchAlgorithmException, InvalidKeyException {
-        TableASCII table = new TableASCII();
-        table.printMenu(s);
-        Rules rules = new Rules();
-        rules.movePC(s);
     }
 
 
