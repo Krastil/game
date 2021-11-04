@@ -27,27 +27,27 @@ public class Rules {
         int count = 0;
         if (str.equals("0")) {
             System.exit(0);
-        }
-        if (str.equals("?")) {
+        } else if (str.equals("?")) {
             table.printTable(s);
-        }
-        for (int i = 0; i < arr.length; i++) {
-            if (Integer.parseInt(str) != (i + 1)) {
-                count++;
-            }
-        }
-        if (arr.length != count) {
-            int b = Integer.parseInt(str);
-            if (a == b) {
-                System.out.println("DRAW");
-            } else if (a - b < -l / 2 || (a - b <= l / 2 && a - b > 0)) {
-                System.out.println("WIN");
-            } else {
-                System.out.println("LOSE");
-            }
-            System.out.println("HMAC key: " + hmac.getKey() + "\n");
         } else {
-            System.out.println("Incorrectly entered variables.\n");
+            for (int i = 0; i < arr.length; i++) {
+                if (Integer.parseInt(str) != (i + 1)) {
+                    count++;
+                }
+            }
+            if (arr.length != count) {
+                int b = Integer.parseInt(str);
+                if (a == b) {
+                    System.out.println("DRAW");
+                } else if (a - b < -l / 2 || (a - b <= l / 2 && a - b > 0)) {
+                    System.out.println("WIN");
+                } else {
+                    System.out.println("LOSE");
+                }
+                System.out.println("HMAC key: " + hmac.getKey() + "\n");
+            } else {
+                System.out.println("Incorrectly entered variables.\n");
+            }
         }
     }
 
