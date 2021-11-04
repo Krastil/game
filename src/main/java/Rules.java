@@ -32,7 +32,7 @@ public class Rules {
             table.printTable(s);
         }
         for (int i = 0; i < arr.length; i++) {
-            if (!str.equals(arr[i])) {
+            if (Integer.parseInt(str) != (i + 1)) {
                 count++;
             }
         }
@@ -45,7 +45,7 @@ public class Rules {
             } else {
                 System.out.println("LOSE");
             }
-            System.out.println("HMAC key: " + hmac.getKey());
+            System.out.println("HMAC key: " + hmac.getKey() + "\n");
         } else {
             System.out.println("Incorrectly entered variables.\n");
         }
